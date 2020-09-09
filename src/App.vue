@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- convention: template, 컴포넌트를 케밥케이스로 표기함  -->
+    <!-- convention: template, 컴포넌트를 케밥케이스로 표기함  test-->
     <tool-bar></tool-bar>
     <router-view></router-view>
   </div>
