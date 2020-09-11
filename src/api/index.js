@@ -6,14 +6,14 @@ const config = {
 }
 
 //2. api functions
-const fetchNewsList = () => {
-  return axios.get(`${config.baseUrl}/news/1.json`)      
+function fetchNewsList() {
+  return axios.get(`${config.baseUrl}/news/1.json`);
 }
-const fetchAsksList = () => {
-  return axios.get(`${config.baseUrl}/ask/1.json`)
+function fetchAsksList() {
+  return axios.get(`${config.baseUrl}/ask/1.json`);
 }
-const fetchJobsList = () => {
-  return axios.get(`${config.baseUrl}/jobs/1.json`)
+function fetchJobsList() {
+  return axios.get(`${config.baseUrl}/jobs/1.json`);
 }
 
 export {
