@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { fetchNewsList } from '../api/index.js'
+import { fetchNewsList, fetchAsksList } from '../api/index.js'
 
 Vue.use(Vuex);
 
@@ -18,12 +18,14 @@ export const store = new Vuex.Store({
   },
   mutations: {
     SET_NEWS(state, data) {
-      console.log(state,data);
       state.news = data
+    },
+    SET_ASKS(state, data) {
+      state.asks = data
     }
   },
   actions: {
-    FETCH_NEWS(context) {
+    FETCH_NEWS(context) { //context: make it possible to current mutations, getters
       fetchNewsList()
         .then(response => {
           console.log(response);
@@ -32,6 +34,11 @@ export const store = new Vuex.Store({
         .catch(error => {
           console.log(error);
         })
+    },
+    FETCH_ASKS(context) {
+      fetchAsksList()
+        .then(response => context.commit('SET_ASKS', response.data))
+        .catch(error => console.log(error));
     }
   }
 });
