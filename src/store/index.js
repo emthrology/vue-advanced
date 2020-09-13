@@ -14,7 +14,9 @@ Vuex 기술요소
 */
 export const store = new Vuex.Store({
   state: {
-    news: []
+    news: [],
+    jobs: [],
+    asks: [],
   },
   mutations: {
     SET_NEWS(state, data) {
@@ -46,7 +48,7 @@ export const store = new Vuex.Store({
     //context를 상정하고, commit이 지금 메소드의 주 사용 속성어서 distrcturing
     FETCH_JOBS({ commit }) {
       fetchJobsList()
-        .then(response => commit('SET_JOBS', response.data))
+        .then(({ data }) => commit('SET_JOBS', data))//마찬가지
         .catch(error => console.log(error));
     }
   }
