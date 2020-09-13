@@ -7,11 +7,13 @@
 <script>
 import { fetchJobsList } from '../api/index.js'
 export default {
-  data() {
-    return {
-      jobs: []
-    }  
-  },
+  
+  // store 에서 받아오니까 필요없음
+  // data() {
+  //   return {
+  //     jobs: []
+  //   }  
+  // },
   created() {
     // fetchJobsList()
     //   .then(response => this.jobs = response.data)
