@@ -1,12 +1,16 @@
 <template>
   <div>
-    <div v-for="ask in askItems" :key="ask.title">{{ ask.title }}</div>
+    <!-- <div v-for="ask in askItems" :key="ask.title">{{ ask.title }}</div> -->
+    <p v-for="item in askItems" :key="item.title">
+      <a :href="item.url">{{item.title}}</a>
+      <small>{{item.time_ago}} / {{item.user}}</small>
+    </p>
   </div>
 </template>
 
 <script>
 
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
   // data() {
   //   return {
