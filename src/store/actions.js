@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchAsksList, fetchJobsList } from '../api/index.js'
+import { fetchNewsList, fetchAsksList, fetchJobsList, fetchUserInfo } from '../api/index.js'
 
 export default {
 FETCH_NEWS(context) { //context: makes it possible to access current mutations, getters
@@ -22,4 +22,11 @@ FETCH_ASKS({ commit }) {
     .then(({ data }) => commit('SET_ASKS', data))
     .catch(error => console.log(error));
 },
+//페이로드 포함한 actions 작성
+FETCH_USER({ commit }, userName) {
+  fetchUserInfo(userName)
+    .then(({ data }) => commit('SET_USER', data))
+    .catch(error => console.log(error));
+}
+
 }
