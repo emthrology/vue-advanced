@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchAsksList, fetchJobsList, fetchUserInfo } from '../api/index.js'
+import { fetchNewsList, fetchAsksList, fetchJobsList, fetchUserInfo, fetchAskItem } from '../api/index.js'
 
 export default {
 FETCH_NEWS(context) { //context: makes it possible to access current mutations, getters
@@ -26,6 +26,11 @@ FETCH_ASKS({ commit }) {
 FETCH_USER({ commit }, userName) {
   fetchUserInfo(userName)
     .then(({ data }) => commit('SET_USER', data))
+    .catch(error => console.log(error));
+},
+FETCH_ITEM({ commit }, item) {
+  fetchAskItem(item)
+    .then(({ data }) => commit('SET_ITEM',data))
     .catch(error => console.log(error));
 }
 

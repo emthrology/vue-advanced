@@ -10,5 +10,8 @@ SET_ASKS(state, data) {
 },
 SET_USER(state, data) {
   state.user = data
+},
+SET_ITEM(state, data) {
+  state.item = data
 }
 }

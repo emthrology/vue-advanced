@@ -2,8 +2,11 @@
   <div>
     <!-- <div v-for="ask in askItems" :key="ask.title">{{ ask.title }}</div> -->
     <p v-for="item in askItems" :key="item.title">
-      <a :href="item.url">{{item.title}}</a>
-      <small>{{item.time_ago}} / {{item.user}}</small>
+      <router-link :to="`/item/${item.id}`">{{item.title}}</router-link>
+      <small>
+        {{item.time_ago}} / 
+        <router-link :to="`/user/${item.user}`">{{item.user}}</router-link>
+      </small>
     </p>
   </div>
 </template>
