@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { fetchNewsList, fetchAsksList } from '../api/index.js'
+import { fetchNewsList, fetchAsksList, fetchJobsList } from '../api/index.js'
 
 Vue.use(Vuex);
 
@@ -22,10 +22,13 @@ export const store = new Vuex.Store({
     },
     SET_ASKS(state, data) {
       state.asks = data
+    },
+    SET_JOBS(state, data) {
+      state.jobs = data
     }
   },
   actions: {
-    FETCH_NEWS(context) { //context: make it possible to current mutations, getters
+    FETCH_NEWS(context) { //context: makes it possible to access current mutations, getters
       fetchNewsList()
         .then(response => {
           console.log(response);
@@ -38,6 +41,12 @@ export const store = new Vuex.Store({
     FETCH_ASKS(context) {
       fetchAsksList()
         .then(response => context.commit('SET_ASKS', response.data))
+        .catch(error => console.log(error));
+    },
+    //context를 상정하고, commit이 지금 메소드의 주 사용 속성어서 distrcturing
+    FETCH_JOBS({ commit }) {
+      fetchJobsList()
+        .then(response => commit('SET_JOBS', response.data))
         .catch(error => console.log(error));
     }
   }

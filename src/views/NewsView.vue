@@ -13,6 +13,7 @@ export default {
     }
   },
   created() {
+    //store/index.js (vuex)의 action 부분 호출
     this.$store.dispatch('FETCH_NEWS'); 
   }  
 }
