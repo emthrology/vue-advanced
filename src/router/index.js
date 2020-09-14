@@ -9,7 +9,7 @@ import ItemView from '../views/ItemView.vue'
 
 Vue.use(VueRouter)
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes: [
     {
@@ -20,25 +20,27 @@ const router = new VueRouter({
       //path: url
       //component: url-binded component
       path: '/news',
+      name: 'news',
       component: NewsView,
     },
     {
       path: '/ask',
+      name: 'ask',
       component: AskView,
     },
     {
       path: '/jobs',
+      name: 'jobs',
       component: JobsView,
     },
+    //동적 라우팅 매칭
     {
-      path: '/user',
+      path: '/user/:id',
       component: UserView,
     },
     {
-      path: '/item',
+      path: '/item/:id',
       component: ItemView,
     },
   ]
 })
-
-export default router

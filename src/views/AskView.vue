@@ -1,25 +1,17 @@
 <template>
   <div>
-    <div v-for="ask in asks" :key="ask.title">{{ ask.title }}</div>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
-import { fetchAsksList } from '../api/index.js'
+import ListItem from '../components/ListItem.vue';
+
+
 export default {
-  data() {
-    return {
-      asks: []
-    }
+  components: {
+    ListItem,
   },
-  created() {
-    fetchAsksList()
-      .then(response => this.asks = response.data)
-      .catch(error => console.log(error));
-  }
+ 
 }
 </script>
-
-<style>
-
-</style>
