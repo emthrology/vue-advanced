@@ -4,7 +4,6 @@ export default {
 FETCH_NEWS(context) { //context: makes it possible to access current mutations, getters
   fetchNewsList()
     .then(response => {
-      console.log(response);
       context.commit('SET_NEWS', response.data);
     })
     .catch(error => {

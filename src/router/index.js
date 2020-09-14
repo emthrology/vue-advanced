@@ -20,14 +20,17 @@ export const router = new VueRouter({
       //path: url
       //component: url-binded component
       path: '/news',
+      name: 'news',
       component: NewsView,
     },
     {
       path: '/ask',
+      name: 'ask',
       component: AskView,
     },
     {
       path: '/jobs',
+      name: 'jobs',
       component: JobsView,
     },
     //동적 라우팅 매칭
