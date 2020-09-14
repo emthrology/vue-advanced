@@ -10,7 +10,9 @@
             <a :href="item.url">{{item.title}}</a>
           </p>
           <small class="jobs-domain">
-            {{item.domain}}
+            <a :href="item.url">
+              {{item.domain}}
+            </a>            
           </small>
         </div>
       </li>
