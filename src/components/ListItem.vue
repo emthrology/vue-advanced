@@ -1,19 +1,41 @@
 <template>
-  <ul class="news-list">
+  <ul class="list-list">
       <li v-for="item in listItems" :key="item.title" class="post">
-        <div class="points">
-          {{ item.points|| 0 }}
-        </div>
+        <!-- 분기 렌더링을 위한 임시 태그 : template / 태그속성에 v-if 디렉티브를 박는경우도 검색 -->
+        <template v-if="item.points">
+          <div class="points">
+            {{ item.points}}
+          </div>
+        </template>
+        <template v-else>
+          <div class="points time_ago">
+            {{item.time_ago}}
+          </div>
+        </template>  
         <div>
-          <p class="news-title">
-            <a :href="item.url">{{item.title}}</a>
+          <p class="lsit-title">
+            <template v-if="item.domain">
+              <a :href="item.url">{{item.title}}</a>
+            </template>
+            <template v-else>
+              <router-link :to="`/item/${item.id}`">{{item.title}}</router-link>
+            </template>
           </p>
-          <small>{{item.time_ago}} </small>
-          <small class="user-text">            
-            <router-link :to="`/user/${item.user}`" class="user-text">
-              {{item.user}}
-            </router-link>
-          </small> 
+          <template v-if="item.points">
+            <small>{{item.time_ago}} </small>
+            <small class="user-text">            
+              <router-link :to="`/user/${item.user}`" class="user-text">
+                {{item.user}}
+              </router-link>
+            </small>
+          </template> 
+          <template v-else>
+            <small class="user-text">
+              <a :href="item.url">
+                {{item.domain}}
+              </a>            
+            </small>
+          </template>
         </div>
       </li>
     </ul>
@@ -53,7 +75,7 @@ export default {
 </script>
 
 <style>
-  .news-list {
+  .list-list {
     margin: 0;
     padding: 0;
   }
@@ -71,7 +93,10 @@ export default {
     justify-content: center;
     color: #d44d11;
   }
-  .news-title {
+  .time_ago {
+    font-size: 10px;
+  }
+  .list-title {
     margin: 0;
 
   }
