@@ -1,13 +1,23 @@
 <template>
   <div>
-    <!-- <div v-for="ask in askItems" :key="ask.title">{{ ask.title }}</div> -->
-    <p v-for="item in askItems" :key="item.title">
-      <router-link :to="`/item/${item.id}`">{{item.title}}</router-link>
-      <small>
-        {{item.time_ago}} / 
-        <router-link :to="`/user/${item.user}`">{{item.user}}</router-link>
-      </small>
-    </p>
+    <ul class="asks-list">
+      <li v-for="item in askItems" :key="item.title" class=post> 
+        <div class="points">
+          {{ item.points }}
+        </div>
+        <div>
+          <p class="ask-title">
+            <router-link :to="`/item/${item.id}`">{{item.title}}</router-link>
+          </p>
+          <small>{{item.time_ago}} </small>
+          <small class="user-id">            
+            <router-link :to="`/user/${item.user}`" class="user-id">
+              {{item.user}}
+            </router-link>
+          </small>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -43,6 +53,30 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .asks-list {
+    margin: 0;
+    padding: 0;
+  }
+  .post {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+  .points {
+    width: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d44d11;
+  }
+  .ask-title {
+    margin: 0;
 
+  }
+  .user-id {
+    color: #828282;
+  }
 </style>

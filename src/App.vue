@@ -22,6 +22,19 @@ export default {
     padding: 0;
     margin: 0;
   }
+  a {
+    color: #34495e;
+    text-decoration: none;
+  }
+
+  a.router-link-exact-active {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color:  #d44d11;
+    text-decoration: underline;
+  }
 
   /* Router Transitions : accepted in cascade way */
   .fade-enter-active, .fade-leave-active {
