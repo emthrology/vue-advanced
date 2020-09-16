@@ -1,24 +1,21 @@
 <template>
   <div>
-    <p>{{fetchedUser.id}}</p>
-    <p>{{fetchedUser.karma}}</p>
-    <p>{{fetchedUser.created}}</p>
+    <user-profile></user-profile>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import UserProfile from '../components/UserProfile.vue';
 export default {
-  computed: {
-    ...mapGetters([
-      'fetchedUser'
-    ]),
+  components: {
+    UserProfile,
   },
-  created() {
-    const userName = this.$route.params.id;
-    //페이로드 전달방식 복습
-    this.$store.dispatch('FETCH_USER', userName);
-  },
+ 
+  // created() {
+  //   const userName = this.$route.params.id;
+  //   //페이로드 전달방식 복습
+  //   this.$store.dispatch('FETCH_USER', userName);
+  // },
 }
 </script>
 
