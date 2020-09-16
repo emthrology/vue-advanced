@@ -1,9 +1,13 @@
 <template>
   <div>
     <user-profile :propInfo="fetchedUser">
+      <!-- 
+        div는 블럭요소작용, template은 아마도 테그없는 plain text 인듯 하다
+        =>template 을 span으로 바꿈 
+       -->
       <div slot="username">{{fetchedUser.id}}</div>
-      <template slot="time">{{fetchedUser.created}}</template>
-      <template slot="karma">{{fetchedUser.karma}}</template>
+      <span slot="time">{{`Joined ${fetchedUser.created}`}}, </span>
+      <span slot="karma">{{`${fetchedUser.karma} karma`}}</span>
     </user-profile>
   </div>
 </template>

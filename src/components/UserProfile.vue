@@ -17,8 +17,8 @@
       <div class="time">
         <!-- {{propInfo.created}} -->
         <slot name="time"></slot>
+        <slot name="karma"></slot>
       </div>
-      <slot name="karma"></slot>       
     </div> 
   </div>
 </template>
@@ -27,9 +27,10 @@
 // import { mapGetters } from 'vuex';
 export default {
   //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지 
-  props: {
-    propInfo: Object
-  },
+  //=>프롭스 대신 슬롯 쓰니까 받아올 필요없어짐
+  // props: {
+  //   propInfo: Object
+  // },
   // computed: {
   //   ...mapGetters([
   //     'fetchedUser'
