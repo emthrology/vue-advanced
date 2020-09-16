@@ -1,14 +1,24 @@
 <template>
   <div>
-    <p>{{fetchedUser.id}}</p>
-    <p>{{fetchedUser.karma}}</p>
-    <p>{{fetchedUser.created}}</p>
+    <user-profile :propInfo="fetchedUser">
+      <!-- 
+        div는 블럭요소작용, template은 아마도 테그없는 plain text 인듯 하다
+        =>template 을 span으로 바꿈 
+       -->
+      <div slot="username">{{fetchedUser.id}}</div>
+      <span slot="time">{{`Joined ${fetchedUser.created}`}}, </span>
+      <span slot="karma">{{`${fetchedUser.karma} karma`}}</span>
+    </user-profile>
   </div>
 </template>
 
 <script>
+import UserProfile from '../components/UserProfile.vue';
 import { mapGetters } from 'vuex';
 export default {
+  components: {
+    UserProfile,
+  },
   computed: {
     ...mapGetters([
       'fetchedUser'
