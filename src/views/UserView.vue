@@ -1,21 +1,26 @@
 <template>
   <div>
-    <user-profile></user-profile>
+    <user-profile :propInfo="fetchedUser"></user-profile>
   </div>
 </template>
 
 <script>
 import UserProfile from '../components/UserProfile.vue';
+import { mapGetters } from 'vuex';
 export default {
   components: {
     UserProfile,
   },
- 
-  // created() {
-  //   const userName = this.$route.params.id;
-  //   //페이로드 전달방식 복습
-  //   this.$store.dispatch('FETCH_USER', userName);
-  // },
+  computed: {
+    ...mapGetters([
+      'fetchedUser'
+    ]),
+  },
+  created() {
+    const userName = this.$route.params.id;
+    //페이로드 전달방식 복습
+    this.$store.dispatch('FETCH_USER', userName);
+  },
 }
 </script>
 

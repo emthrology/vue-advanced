@@ -6,21 +6,25 @@
     </div>
     <div class="user-description">
       <div>
-        {{fetchedUser.id}}
+        {{propInfo.id}}
       </div>
-      <div class="time">{{fetchedUser.created}}</div>
+      <div class="time">{{propInfo.created}}</div>
     </div>        
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 export default {
-  computed: {
-    ...mapGetters([
-      'fetchedUser'
-    ]),
+  //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지
+  props: {
+    propInfo: Object
   },
+  // computed: {
+  //   ...mapGetters([
+  //     'fetchedUser'
+  //   ]),
+  // },
 }
 </script>
 
