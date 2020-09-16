@@ -1,6 +1,10 @@
 <template>
   <div>
-    <user-profile :propInfo="fetchedUser"></user-profile>
+    <user-profile :propInfo="fetchedUser">
+      <div slot="username">{{fetchedUser.id}}</div>
+      <template slot="time">{{fetchedUser.created}}</template>
+      <template slot="karma">{{fetchedUser.karma}}</template>
+    </user-profile>
   </div>
 </template>
 

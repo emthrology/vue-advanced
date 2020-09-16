@@ -1,22 +1,32 @@
 <template>
-  <div class="user-container"> 
+  <div class="user-container">
     <div>
       <!-- 사용자 프로필 -->
       <i class="fas fa-user"></i>
     </div>
     <div class="user-description">
       <div>
-        {{propInfo.id}}
+        <!-- {{propInfo.id}} -->
+        <!-- 
+          프롭스 대신 슬롯으로 지정
+          자식컴포넌트에서 빈칸으로 비워놓고
+          가져다 쓸 부모 컴포넌트에서 채워넣는 방식
+         -->
+        <slot name="username"></slot>
       </div>
-      <div class="time">{{propInfo.created}}</div>
-    </div>        
+      <div class="time">
+        <!-- {{propInfo.created}} -->
+        <slot name="time"></slot>
+      </div>
+      <slot name="karma"></slot>       
+    </div> 
   </div>
 </template>
 
 <script>
 // import { mapGetters } from 'vuex';
 export default {
-  //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지
+  //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지 
   props: {
     propInfo: Object
   },
