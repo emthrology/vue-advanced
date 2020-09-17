@@ -5,6 +5,7 @@ FETCH_NEWS(context) { //context: makes it possible to access current mutations, 
   fetchNewsList()
     .then(response => {
       context.commit('SET_NEWS', response.data);
+      return response;
     })
     .catch(error => {
       console.log(error);
