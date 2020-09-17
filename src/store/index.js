@@ -16,6 +16,7 @@ Vuex 기술요소
 */
 export const store = new Vuex.Store({
   state: {
+    list: [],
     news: [],
     jobs: [],
     asks: [],
@@ -31,6 +32,9 @@ export const store = new Vuex.Store({
     },
     fetchAskItem(state) {
       return state.item;
+    },
+    fetchList(state) {
+      return state.list;
     }
   },
   mutations,

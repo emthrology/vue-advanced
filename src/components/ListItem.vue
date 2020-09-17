@@ -43,32 +43,33 @@
 
 <script>
 export default {
-    created() {
-    //store/index.js (vuex)의 action 부분 호출
-    //라우팅 name 속성에 따라 store에서 불러올 action을 결정
-    const name = this.$route.name;
-    let actionName = '';
-    switch(name) {
-      case 'news' : actionName = 'FETCH_NEWS';
-        break;
-      case 'ask' : actionName = 'FETCH_ASKS';
-        break;
-      case 'jobs' : actionName = 'FETCH_JOBS';
-        break;   
-    }
-    this.$store.dispatch(actionName);
-  },
+  //   created() {
+  //   //store/index.js (vuex)의 action 부분 호출
+  //   //라우팅 name 속성에 따라 store에서 불러올 action을 결정
+  //   const name = this.$route.name;
+  //   let actionName = '';
+  //   switch(name) {
+  //     case 'news' : actionName = 'FETCH_NEWS';
+  //       break;
+  //     case 'ask' : actionName = 'FETCH_ASKS';
+  //       break;
+  //     case 'jobs' : actionName = 'FETCH_JOBS';
+  //       break;   
+  //   }
+  //   this.$store.dispatch(actionName);
+  // },
   computed: {
     // v-for 에 뿌려줄 state 고르는 로직
     listItems() {
-      const name = this.$route.name;
-      let state = this.$store.state;
-      switch(name) {
-      case 'news' : return state.news;
-      case 'ask' : return state.asks;
-      case 'jobs' : return state.jobs;  
-      default : return undefined;
-      } 
+      // const name = this.$route.name;
+      // let state = this.$store.state;
+      // switch(name) {
+      // case 'news' : return state.news;
+      // case 'ask' : return state.asks;
+      // case 'jobs' : return state.jobs;  
+      // default : return undefined;
+      // } 
+      return this.$store.state.list;
     }
   }  
 }
