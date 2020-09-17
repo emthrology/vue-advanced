@@ -24,6 +24,7 @@ export default {
 //     .then(({ data }) => commit('SET_ASKS', data))
 //     .catch(error => console.log(error));
 // },
+
 //페이로드 포함한 actions 작성
 FETCH_USER({ commit }, userName) {
   fetchUserInfo(userName)
