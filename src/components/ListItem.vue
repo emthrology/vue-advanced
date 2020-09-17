@@ -61,14 +61,15 @@ export default {
   computed: {
     // v-for 에 뿌려줄 state 고르는 로직
     listItems() {
-      const name = this.$route.name;
-      let state = this.$store.state;
-      switch(name) {
-      case 'news' : return state.news;
-      case 'ask' : return state.asks;
-      case 'jobs' : return state.jobs;  
-      default : return undefined;
-      } 
+      // const name = this.$route.name;
+      // let state = this.$store.state;
+      // switch(name) {
+      // case 'news' : return state.news;
+      // case 'ask' : return state.asks;
+      // case 'jobs' : return state.jobs;  
+      // default : return undefined;
+      // } 
+      return this.$store.state.list;
     }
   }  
 }
