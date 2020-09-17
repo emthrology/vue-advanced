@@ -1,4 +1,3 @@
-//h-o-c 핵심파일
 import ListView from './ListView.vue';
 import bus from '../utils/bus.js';
 
