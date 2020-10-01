@@ -27,18 +27,27 @@ export default {
 
 //페이로드 포함한 actions 작성
 FETCH_USER({ commit }, userName) {
-  fetchUserInfo(userName)
-    .then(({ data }) => commit('SET_USER', data))
+  return fetchUserInfo(userName)
+    .then((response) => {
+      commit('SET_USER', response.data)
+      return response;
+    })
     .catch(error => console.log(error));
 },
 FETCH_ITEM({ commit }, item) {
-  fetchAskItem(item)
-    .then(({ data }) => commit('SET_ITEM',data))
+  return fetchAskItem(item)
+    .then((response) => {
+      commit('SET_ITEM',response.data)
+      return response;
+    })
     .catch(error => console.log(error));
 },
 FETCH_LIST({ commit }, pageName) {
-  fetchList(pageName)
-    .then(({ data }) => commit('SET_LIST', data))
+  return fetchList(pageName)
+    .then((response) => {
+    commit('SET_LIST', response.data)
+    return response;
+  })
     .catch(error => console.log(error));
 }
 

@@ -13,7 +13,7 @@
           </div>
         </template>  
         <div>
-          <p class="lsit-title">
+          <p class="list-title">
             <template v-if="item.domain">
               <a :href="item.url">{{item.title}}</a>
             </template>
