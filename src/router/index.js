@@ -38,7 +38,6 @@ export const router = new VueRouter({
         store.dispatch('FETCH_LIST', to.name)
         .then(() => {
           console.log('fetched');
-          bus.$emit('end:spinner');
           //인증값 이나 validation 로직 처리 후 next()를 보통 호출한다
           next();
         })
@@ -53,12 +52,37 @@ export const router = new VueRouter({
       name: 'ask',
       component: AskView,
       // component: createListView('AskViwe'),
+      beforeEnter: (to, from, next) => {
+        bus.$emit('start:spinner');
+        store.dispatch('FETCH_LIST', to.name)
+        .then(() => {
+          console.log('fetched');
+          //인증값 이나 validation 로직 처리 후 next()를 보통 호출한다
+          next();
+        })
+        .catch(error => {
+          console.log(error);
+        }); 
+
+      }
     },
     {
       path: '/jobs',
       name: 'jobs',
       component: JobsView,
       // component: createListView('JobsView'),
+      beforeEnter: (to, from, next) => {
+        bus.$emit('start:spinner');
+        store.dispatch('FETCH_LIST', to.name)
+        .then(() => {
+          console.log('fetched');
+          //인증값 이나 validation 로직 처리 후 next()를 보통 호출한다
+          next();
+        })
+        .catch(error => {
+          console.log(error);
+        }); 
+      }  
     },
     //동적 라우팅 매칭
     {
