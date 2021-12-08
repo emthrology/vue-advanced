@@ -16,7 +16,7 @@ import ItemView from '../views/ItemView.vue';
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
-  mode: 'history',
+  mode: 'history', //URL 상의'#'기호를 없애주는 모드..
   routes: [
     {
       path: '/',
