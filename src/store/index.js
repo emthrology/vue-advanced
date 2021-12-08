@@ -6,7 +6,6 @@ import actions from './actions.js';
 
 Vue.use(Vuex);
 
-
 /*
 Vuex 기술요소
  state : 여러 컴포넌트에 공유되는 데이터 (vue의 data)
@@ -35,7 +34,7 @@ export const store = new Vuex.Store({
     },
     fetchList(state) {
       return state.list;
-    }
+    },
   },
   mutations,
   actions,

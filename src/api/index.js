@@ -2,8 +2,8 @@ import axios from 'axios';
 
 //1. Http Request & Response basic config
 const config = {
-  baseUrl: 'https://api.hnpwa.com/v0'
-}
+  baseUrl: 'https://api.hnpwa.com/v0',
+};
 
 //2. api functions
 // function fetchNewsList() {
@@ -29,6 +29,8 @@ function fetchList(pageName) {
 }
 
 export {
-  // fetchNewsList, fetchAsksList, fetchJobsList, 
-  fetchUserInfo, fetchAskItem, fetchList
-}
+  // fetchNewsList, fetchAsksList, fetchJobsList,
+  fetchUserInfo,
+  fetchAskItem,
+  fetchList,
+};

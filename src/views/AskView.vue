@@ -8,14 +8,10 @@
 import ListItem from '../components/ListItem.vue';
 import dataFetchingMixin from '../mixins/dataFetchingMixin.js';
 
-
 export default {
   components: {
     ListItem,
   },
   mixins: [dataFetchingMixin],
-
-
-
-}
+};
 </script>

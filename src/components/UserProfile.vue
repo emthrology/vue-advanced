@@ -19,14 +19,14 @@
         <slot name="time"></slot>
         <slot name="karma"></slot>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
 // import { mapGetters } from 'vuex';
 export default {
-  //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지 
+  //프롭스로 부모 뷰에서 받아와서 쓸 수도 있지
   //=>프롭스 대신 슬롯 쓰니까 받아올 필요없어짐
   // props: {
   //   propInfo: Object
@@ -36,22 +36,22 @@ export default {
   //     'fetchedUser'
   //   ]),
   // },
-}
+};
 </script>
 
 <style scoped>
-  .user-container {
-    display: flex;
-    align-items:center;
-    padding: 0.5rem;
-  }
-  .user-description {
-    padding-left: 8px;
-  }
-  .fa-user {
-    font-size: 2.5rem;
-  }
-  .time {
-    font-size: 0.7rem;
-  }
+.user-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.user-description {
+  padding-left: 8px;
+}
+.fa-user {
+  font-size: 2.5rem;
+}
+.time {
+  font-size: 0.7rem;
+}
 </style>

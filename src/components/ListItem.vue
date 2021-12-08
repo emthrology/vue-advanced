@@ -1,44 +1,44 @@
 <template>
   <ul class="list-list">
-      <li v-for="item in listItems" :key="item.title" class="post">
-        <!-- 분기 렌더링을 위한 임시 태그 : template / 태그속성에 v-if 디렉티브를 박는경우도 검색 -->
+    <li v-for="item in listItems" :key="item.title" class="post">
+      <!-- 분기 렌더링을 위한 임시 태그 : template / 태그속성에 v-if 디렉티브를 박는경우도 검색 -->
+      <template v-if="item.points">
+        <div class="points">
+          {{ item.points }}
+        </div>
+      </template>
+      <template v-else>
+        <div class="points time_ago">
+          {{ item.time_ago }}
+        </div>
+      </template>
+      <div>
+        <p class="list-title">
+          <template v-if="item.domain">
+            <a :href="item.url">{{ item.title }}</a>
+          </template>
+          <template v-else>
+            <router-link :to="`/item/${item.id}`">{{ item.title }}</router-link>
+          </template>
+        </p>
         <template v-if="item.points">
-          <div class="points">
-            {{ item.points}}
-          </div>
+          <small>{{ item.time_ago }} </small>
+          <small class="user-text">
+            <router-link :to="`/user/${item.user}`" class="user-text">
+              {{ item.user }}
+            </router-link>
+          </small>
         </template>
         <template v-else>
-          <div class="points time_ago">
-            {{item.time_ago}}
-          </div>
-        </template>  
-        <div>
-          <p class="list-title">
-            <template v-if="item.domain">
-              <a :href="item.url">{{item.title}}</a>
-            </template>
-            <template v-else>
-              <router-link :to="`/item/${item.id}`">{{item.title}}</router-link>
-            </template>
-          </p>
-          <template v-if="item.points">
-            <small>{{item.time_ago}} </small>
-            <small class="user-text">            
-              <router-link :to="`/user/${item.user}`" class="user-text">
-                {{item.user}}
-              </router-link>
-            </small>
-          </template> 
-          <template v-else>
-            <small class="user-text">
-              <a :href="item.url">
-                {{item.domain}}
-              </a>            
-            </small>
-          </template>
-        </div>
-      </li>
-    </ul>
+          <small class="user-text">
+            <a :href="item.url">
+              {{ item.domain }}
+            </a>
+          </small>
+        </template>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -54,7 +54,7 @@ export default {
   //     case 'ask' : actionName = 'FETCH_ASKS';
   //       break;
   //     case 'jobs' : actionName = 'FETCH_JOBS';
-  //       break;   
+  //       break;
   //   }
   //   this.$store.dispatch(actionName);
   // },
@@ -66,42 +66,41 @@ export default {
       // switch(name) {
       // case 'news' : return state.news;
       // case 'ask' : return state.asks;
-      // case 'jobs' : return state.jobs;  
+      // case 'jobs' : return state.jobs;
       // default : return undefined;
-      // } 
+      // }
       return this.$store.state.list;
-    }
-  }  
-}
+    },
+  },
+};
 </script>
 
 <style>
-  .list-list {
-    margin: 0;
-    padding: 0;
-  }
-  .post {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-  }
-  .points {
-    width: 80px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #d44d11;
-  }
-  .time_ago {
-    font-size: 10px;
-  }
-  .list-title {
-    margin: 0;
-
-  }
-  .user-text {
-    color: #828282;
-  }
+.list-list {
+  margin: 0;
+  padding: 0;
+}
+.post {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.points {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d44d11;
+}
+.time_ago {
+  font-size: 10px;
+}
+.list-title {
+  margin: 0;
+}
+.user-text {
+  color: #828282;
+}
 </style>

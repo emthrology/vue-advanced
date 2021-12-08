@@ -26,11 +26,11 @@ export default {
     endSpiner() {
       this.loadingStatus = false;
     },
-  }, 
+  },
   data() {
-    return{
+    return {
       loadingStatus: false,
-    }
+    };
   },
   created() {
     bus.$on('start:spinner', this.startSpinner);
@@ -39,34 +39,35 @@ export default {
   beforeDestroy() {
     bus.$off('start:spinner', this.startSpinner);
     bus.$off('end:spinner', this.endSpinner);
-  }
-}
+  },
+};
 </script>
 
 <style>
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  a {
-    color: #34495e;
-    text-decoration: none;
-  }
+body {
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: #34495e;
+  text-decoration: none;
+}
 
-  a.router-link-exact-active {
-    text-decoration: underline;
-  }
+a.router-link-exact-active {
+  text-decoration: underline;
+}
 
-  a:hover {
-    color:  #d44d11;
-    text-decoration: underline;
-  }
+a:hover {
+  color: #d44d11;
+  text-decoration: underline;
+}
 
-  /* Router Transitions : accepted in cascade way */
-  .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
+/* Router Transitions : accepted in cascade way */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
