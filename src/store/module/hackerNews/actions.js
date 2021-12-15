@@ -3,7 +3,7 @@ import {
   fetchUserInfo,
   fetchAskItem,
   fetchList,
-} from '../api/index.js';
+} from '../../../api/index.js';
 
 export default {
   // FETCH_NEWS(context) { //context: makes it possible to access current mutations, getters

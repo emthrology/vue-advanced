@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import mutations from './mutations.js';
-import actions from './actions.js';
+import hackerNewsStore from './module/hackerNews'
+import testStore from './module/test'
 
 Vue.use(Vuex);
 
@@ -14,28 +14,10 @@ Vuex 기술요소
  actions : 비동기처리 로직 선언 (async...)
 */
 export const store = new Vuex.Store({
-  state: {
-    list: [],
-    news: [],
-    jobs: [],
-    asks: [],
-    user: {},
-    item: {},
+  modules: {
+      hackerNewsStore,
+      testStore
   },
-  getters: {
-    fetchedAsk(state) {
-      return state.asks;
-    },
-    fetchedUser(state) {
-      return state.user;
-    },
-    fetchAskItem(state) {
-      return state.item;
-    },
-    fetchList(state) {
-      return state.list;
-    },
-  },
-  mutations,
-  actions,
+
+
 });

@@ -60,6 +60,7 @@ export default {
   // },
   computed: {
     // v-for 에 뿌려줄 state 고르는 로직
+
     listItems() {
       // const name = this.$route.name;
       // let state = this.$store.state;
@@ -69,7 +70,8 @@ export default {
       // case 'jobs' : return state.jobs;
       // default : return undefined;
       // }
-      return this.$store.state.list;
+      console.log(this.$store.state.testStore.testList,33);
+      return this.$store.state.hackerNewsStore.list;
     },
   },
 };
