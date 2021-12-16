@@ -29,28 +29,31 @@ export default {
   // },
 
   //페이로드 포함한 actions 작성
-  FETCH_USER({ commit }, userName) {
-    return fetchUserInfo(userName)
-      .then(response => {
-        commit('SET_USER', response.data);
-        return response;
-      })
-      .catch(error => console.log(error));
+  async FETCH_USER({ commit }, userName) {
+    try {
+      const response = await fetchUserInfo(userName);
+      commit('SET_USER', response.data);
+      return response;
+    } catch (error) {
+      return console.log(error);
+    }
   },
-  FETCH_ITEM({ commit }, item) {
-    return fetchAskItem(item)
-      .then(response => {
-        commit('SET_ITEM', response.data);
-        return response;
-      })
-      .catch(error => console.log(error));
+  async FETCH_ITEM({ commit }, item) {
+    try {
+      const response = await fetchAskItem(item);
+      commit('SET_ITEM', response.data);
+      return response;
+    } catch (error) {
+      return console.log(error);
+    }
   },
-  FETCH_LIST({ commit }, pageName) {
-    return fetchList(pageName)
-      .then(response => {
-        commit('SET_LIST', response.data);
-        return response;
-      })
-      .catch(error => console.log(error));
+  async FETCH_LIST({ commit }, pageName) {
+    try {
+      const response = await fetchList(pageName);
+      commit('SET_LIST', response.data);
+      return response;
+    } catch (error) {
+      return console.log(error);
+    }
   },
 };
