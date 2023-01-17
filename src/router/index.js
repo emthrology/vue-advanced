@@ -57,7 +57,7 @@ export const router = new VueRouter({
         store
           .dispatch('FETCH_LIST', to.name)
           .then(() => {
-            console.log('fetched');
+            console.log('ask fetched');
             //인증값 이나 validation 로직 처리 후 next()를 보통 호출한다
             next();
           })

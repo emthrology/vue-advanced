@@ -56,4 +56,7 @@ export default {
       return console.log(error);
     }
   },
+  UPDATE_LIST({commit}, listItems) {
+    commit('SET_LIST', listItems);
+  }
 };
