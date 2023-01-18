@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- convention: template, 컴포넌트를 케밥케이스로 표기함  test2-->
-    <tool-bar></tool-bar>
+    <!-- <tool-bar></tool-bar> -->
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -16,7 +16,7 @@ import bus from './utils/bus.js';
 
 export default {
   components: {
-    ToolBar,
+    // ToolBar,
     Spinner,
   },
   methods: {

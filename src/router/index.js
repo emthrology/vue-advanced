@@ -12,6 +12,7 @@ import JobsView from '../views/JobsView.vue';
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
 // import createListView from '../views/createListView.js';
+import FreeTownView from '../views/FreeTownView.vue';
 
 Vue.use(VueRouter);
 
@@ -84,6 +85,12 @@ export const router = new VueRouter({
             console.log(error);
           });
       },
+    },
+    {
+      path: '/myWallet',
+      name: 'myWallet',
+      component: FreeTownView,
+      
     },
     //동적 라우팅 매칭
     {
